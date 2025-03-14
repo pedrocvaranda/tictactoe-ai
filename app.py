@@ -1,13 +1,14 @@
 from flask import Flask, request, jsonify, send_file
 from board import Board
 from players.human_player import HumanPlayer
-from players.minimax_bot import MinimaxBot
+from players.one_layer_bot import OneLayerBot
 import os
+
 
 app = Flask(__name__)
 board = Board()
 player1 = HumanPlayer("X")  # Jogador humano (X)
-player2 = MinimaxBot("O")  # Bot (O)
+player2 = OneLayerBot("O")  # Bot (O)
 current_player = player1  # Começa com humano
 
 @app.route("/move", methods=["POST"])

@@ -1,3 +1,6 @@
+from players.random_bot import RandomBot
+from board import Board
+
 class OneLayerBot:
     def __init__(self, symbol):
         self.symbol = symbol
