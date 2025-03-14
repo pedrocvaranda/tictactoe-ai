@@ -1,4 +1,4 @@
-from flash import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file
 from board import Board
 from players.human_player import HumanPlayer
 from players.minimax_bot import MinimaxBot
