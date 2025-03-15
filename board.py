@@ -20,7 +20,14 @@ class Board:
         return False
 
     def has_winner(self):
-        for line in self.board + list(zip(*self.board)):
+        lines = self.board + list(zip(*self.board))
+
+        diagonals = [
+            [self.board[0][0], self.board[1][1], self.board[2][2]],
+            [self.board[0][2], self.board[1][1], self.board[2][0]]
+        ]
+
+        for line in lines + diagonals:
             if line == ["X", "X", "X"]:
                 return "X"
             if line == ["O", "O", "O"]:

@@ -12,7 +12,7 @@ class Game:
 
     def play(self):
         while not self.board.is_full() and not self.board.has_winner():
-            row, col = self.current_player.get_move(self.board)
+            row, col, = self.current_player.get_move(self.board)
             if self.board.make_move(row, col, self.current_player.symbol):
                 self.board.print_board()
                 
