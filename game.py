@@ -1,7 +1,7 @@
 import os
 from board import Board
 from time import sleep
-#from PIL import Image
+from PIL import Image
 
 class Game:
     def __init__(self, board, player1, player2):
@@ -16,9 +16,9 @@ class Game:
             if self.board.make_move(row, col, self.current_player.symbol):
                 self.board.print_board()
 
-                #if os.path.exists("tic_tac_toe.png"):
-                    #img = Image.open("tic_tac_toe.png")
-                    #img.show()
+                if os.path.exists("tic_tac_toe.png"):
+                    img = Image.open("tic_tac_toe.png")
+                    img.show()
 
                 self.current_player = self.player1 if self.current_player == self.player2 else self.player2
                 sleep(1)
@@ -29,6 +29,6 @@ class Game:
         else:
             print("Empate!")
 
-        #if os.path.exists("tic_tac_toe.png"):
-            #img = Image.open("tic_tac_toe.png")
-            #img.show()
+        if os.path.exists("tic_tac_toe.png"):
+            img = Image.open("tic_tac_toe.png")
+            img.show()

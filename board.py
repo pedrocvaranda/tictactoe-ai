@@ -1,4 +1,4 @@
-#from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw
 
 class Board:
     def __init__(self):
@@ -37,7 +37,7 @@ class Board:
     def is_full(self):
         return all(cell != " " for row in self.board for cell in row)
 
-    #def save_board_image(self, filename):
+    def save_board_image(self, filename):
         img = Image.new("RGB", (300, 300), "white")
         draw = ImageDraw.Draw(img)
 
