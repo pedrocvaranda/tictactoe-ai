@@ -49,10 +49,6 @@ def make_move():
     return jsonify({"status": "invalid move"})
 
 
-#@app.route("/board_image")
-#def get_board_image():
-    #board.save_board_image("static/tic_tac_toe.png")
-    #return send_file("static/tic_tac_toe.png", mimetype="image/png")
 
 if __name__ == "__main__":
     app.run(debug=True)
