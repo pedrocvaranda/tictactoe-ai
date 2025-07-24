@@ -1,15 +1,31 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template
 from board import Board
+from game import Game 
 from players.human_player import HumanPlayer
-from players.one_layer_bot import OneLayerBot
+from players.alphabeta_bot import AlphaBetaBot
 import os
 
 
 app = Flask(__name__)
 board = Board()
 player1 = HumanPlayer("X")  # Jogador humano (X)
-player2 = OneLayerBot("O")  # Bot (O)
+player2 = AlphaBetaBot("O")  # Bot (O)
 current_player = player1  # Começa com humano
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+@app.route("/start", methods=["POST"])
+def start_game():
+    global board, current_player
+    board = Board()
+    current_player = player1
+    return jsonify({"status": "game started", "board": board.board, "winner": None})
+
 
 @app.route("/move", methods=["POST"])
 def make_move():
@@ -32,17 +48,11 @@ def make_move():
 
     return jsonify({"status": "invalid move"})
 
-@app.route("/reset", methods=["POST"])
-def reset_game():
-    global board, current_player
-    board = Board()
-    current_player = player1
-    return jsonify({"status": "game reset"})
 
-@app.route("/board_image")
-def get_board_image():
-    board.save_board_image("static/tic_tac_toe.png")
-    return send_file("static/tic_tac_toe.png", mimetype="image/png")
+#@app.route("/board_image")
+#def get_board_image():
+    #board.save_board_image("static/tic_tac_toe.png")
+    #return send_file("static/tic_tac_toe.png", mimetype="image/png")
 
 if __name__ == "__main__":
     app.run(debug=True)

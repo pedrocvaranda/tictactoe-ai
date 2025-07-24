@@ -1,0 +1,37 @@
+<!-- filepath: c:\Users\pedro\Documents\Code\GitHub\tictactoe-ai\templates\index.html -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+
+</head>
+<body>
+    <h1>Jogo da Velha</h1>
+    <p>Jogue contra TICTACTOE AI 1.0.0!</p>
+    <button onclick="startGame()">Iniciar Jogo</button>
+    <img id="board" src="tic_tac_toe.png" alt="Tabuleiro">
+    <br>
+    <div id="grid">
+     <button data-row="0" data-col="0" onclick="makeMove(0, 0)"> </button>
+     <button data-row="0" data-col="1" onclick="makeMove(0, 1)"> </button>
+     <button data-row="0" data-col="2" onclick="makeMove(0, 2)"> </button>
+     <br>
+     <button data-row="1" data-col="0" onclick="makeMove(1, 0)"> </button>
+     <button data-row="1" data-col="1" onclick="makeMove(1, 1)"> </button>
+     <button data-row="1" data-col="2" onclick="makeMove(1, 2)"> </button>
+     <br>
+     <button data-row="2" data-col="0" onclick="makeMove(2, 0)"> </button>
+     <button data-row="2" data-col="1" onclick="makeMove(2, 1)"> </button>
+     <button data-row="2" data-col="2" onclick="makeMove(2, 2)"> </button>
+    </div>
+    <br>
+    <button onclick="resetGame()">Reiniciar</button>
+    #<p id="status"></p>
+
+</body>
+</html>

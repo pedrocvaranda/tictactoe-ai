@@ -1,3 +1,8 @@
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+print("Current working directory:", os.getcwd())
+
+
 from board import Board
 from game import Game
 from players import RandomBot, OneLayerBot, MinimaxBot, AlphaBetaBot, HumanPlayer
